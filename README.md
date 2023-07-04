@@ -8,7 +8,7 @@ ______
 4. Side Entrance ✅
 5. The Rewarder ✅
 6. Selfie ✅
-7. Compromised
+7. Compromised ✅
 8. Puppet
 9. Puppet V2
 10. Free Rider
